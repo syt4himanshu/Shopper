@@ -1,0 +1,141 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 2rem;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav-logo-img {
+  height: 38px;
+  width: auto;
+}
+
+.nav-brand {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+  letter-spacing: 1px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.nav-center {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #444;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-link:hover {
+  background: #f0f4ff;
+  color: #007bff;
+}
+
+.nav-link.active {
+  color: #007bff;
+  font-weight: 700;
+  background: #e6f0ff;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-login-btn {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1.3rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.nav-login-btn:hover {
+  background: #0056b3;
+}
+
+.nav-cart-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-cart-img {
+  height: 32px;
+  width: auto;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.08));
+}
+
+.nav-cart-count {
+  position: absolute;
+  top: -7px;
+  right: -10px;
+  background: #ff3b3b;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 50%;
+  padding: 2px 7px;
+  min-width: 22px;
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+@media (max-width: 900px) {
+  .nav-center {
+    gap: 1.2rem;
+  }
+  .navbar {
+    padding: 0.75rem 1rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .nav-brand {
+    font-size: 1.3rem;
+  }
+  .nav-center {
+    gap: 0.7rem;
+  }
+  .nav-login-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  .nav-left, .nav-center, .nav-right {
+    justify-content: center;
+  }
+  .nav-center {
+    margin: 0.5rem 0;
+  }
+}
