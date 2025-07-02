@@ -1,0 +1,394 @@
+/* RelatedProducts.css */
+
+/* Section Styling */
+.related-products-section {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.related-products-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.05) 0%, transparent 30%);
+  pointer-events: none;
+}
+
+.related-products-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header Styling */
+.section-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+  position: relative;
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, #1e293b 0%, #475569 50%, #64748b 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+  animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+}
+
+.section-divider {
+  width: 120px;
+  height: 2px;
+  background: linear-gradient(90deg, #e5e7eb, #6366f1, #e5e7eb);
+  margin: 1.5rem auto;
+  opacity: 0.7;
+  border-radius: 1px;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Products Grid */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  position: relative;
+}
+
+/* Animation for grid items */
+.products-grid > * {
+  animation: fadeInUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Staggered animation delays */
+.products-grid > *:nth-child(1) { animation-delay: 0.1s; }
+.products-grid > *:nth-child(2) { animation-delay: 0.2s; }
+.products-grid > *:nth-child(3) { animation-delay: 0.3s; }
+.products-grid > *:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hover effects for the entire grid */
+.products-grid:hover > *:not(:hover) {
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+/* Enhanced Item card styling within this section */
+.products-grid .item-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(10px);
+}
+
+.products-grid .item-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.products-grid .item-card:hover::before {
+  opacity: 1;
+}
+
+.products-grid .item-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  border-color: rgba(102, 126, 234, 0.2);
+}
+
+/* Image styling within the grid */
+.products-grid .item-image {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  object-position: center;
+  transition: all 0.5s ease;
+  position: relative;
+  z-index: 2;
+  border-radius: 16px 16px 0 0;
+  background: linear-gradient(45deg, #f8f9ff, #e8eeff);
+}
+
+.products-grid .item-card:hover .item-image {
+  transform: scale(1.08);
+  filter: brightness(1.1) saturate(1.2);
+}
+
+/* Content styling within the grid */
+.products-grid .item-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 1.25rem 1.5rem 0.75rem;
+  line-height: 1.4;
+  position: relative;
+  z-index: 4;
+  transition: color 0.3s ease;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 2.8em;
+}
+
+.products-grid .item-card:hover .item-name {
+  color: #667eea;
+}
+
+/* Pricing styling within the grid */
+.products-grid .item-prices {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 1.5rem 1.25rem;
+  position: relative;
+  z-index: 4;
+}
+
+.products-grid .item-price-new {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #e53e3e;
+  position: relative;
+}
+
+.products-grid .item-price-new::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #e53e3e, #ff6b6b);
+  transition: width 0.3s ease;
+  border-radius: 1px;
+}
+
+.products-grid .item-card:hover .item-price-new::before {
+  width: 100%;
+}
+
+.products-grid .item-price-old {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #a0aec0;
+  text-decoration: line-through;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .related-products-section {
+    padding: 4rem 0;
+  }
+  
+  .products-grid {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .related-products-section {
+    padding: 3rem 0;
+  }
+  
+  .section-header {
+    margin-bottom: 2.5rem;
+  }
+  
+  .section-title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+  }
+  
+  .products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .products-grid .item-image {
+    height: 240px;
+  }
+}
+
+@media (max-width: 480px) {
+  .related-products-container {
+    padding: 0 1.5rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1rem;
+  }
+  
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .products-grid .item-image {
+    height: 220px;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .related-products-section {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  }
+  
+  .section-title {
+    background: linear-gradient(135deg, #f3f4f6 0%, #d1d5db 50%, #9ca3af 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .section-subtitle {
+    color: #9ca3af;
+  }
+  
+  .section-divider {
+    background: linear-gradient(90deg, #4b5563, #8b5cf6, #4b5563);
+  }
+  
+  .products-grid .item-card {
+    background: #2d2d2d;
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .products-grid .item-name {
+    color: #f3f4f6;
+  }
+  
+  .products-grid .item-card:hover .item-name {
+    color: #93c5fd;
+  }
+  
+  .products-grid .item-price-old {
+    color: #6b7280;
+  }
+  
+  .products-grid:hover > *:not(:hover) {
+    opacity: 0.7;
+  }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+  .section-title {
+    animation: none;
+  }
+  
+  .products-grid > * {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  
+  .products-grid .item-card:hover {
+    transform: none;
+  }
+  
+  .products-grid .item-card:hover .item-image {
+    transform: none;
+  }
+}
+
+/* Focus States for Accessibility */
+.products-grid .item-card:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  .related-products-section {
+    background: white;
+  }
+  
+  .section-title {
+    background: none;
+    -webkit-text-fill-color: black;
+    color: black;
+  }
+  
+  .section-subtitle {
+    color: black;
+  }
+  
+  .products-grid .item-card {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}
+
+/* Enhanced backdrop blur effect for supported browsers */
+@supports (backdrop-filter: blur(10px)) {
+  .related-products-section::before {
+    backdrop-filter: blur(10px);
+  }
+}

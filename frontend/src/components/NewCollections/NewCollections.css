@@ -1,0 +1,269 @@
+/* NewCollections.css */
+
+.new-collections {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Decorative background elements */
+  .new-collections::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(74, 144, 226, 0.03) 0%, transparent 70%);
+    animation: float 20s ease-in-out infinite;
+    pointer-events: none;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+  }
+  
+  .new-collections h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #2c3e50, #3498db, #e74c3c);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s ease infinite;
+    position: relative;
+    letter-spacing: -1px;
+  }
+  
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .new-collections h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #3498db, #e74c3c);
+    border-radius: 2px;
+    opacity: 0.7;
+  }
+  
+  .new-collections hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #3498db, transparent);
+    margin: 40px auto 60px;
+    width: 80%;
+    max-width: 600px;
+    opacity: 0.6;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+    position: relative;
+  }
+  
+  /* Enhanced grid items with hover effects */
+  .grid > * {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: translateY(0);
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+  }
+  
+  .grid > *:nth-child(1) { animation-delay: 0.1s; }
+  .grid > *:nth-child(2) { animation-delay: 0.2s; }
+  .grid > *:nth-child(3) { animation-delay: 0.3s; }
+  .grid > *:nth-child(4) { animation-delay: 0.4s; }
+  .grid > *:nth-child(5) { animation-delay: 0.5s; }
+  .grid > *:nth-child(6) { animation-delay: 0.6s; }
+  .grid > *:nth-child(7) { animation-delay: 0.7s; }
+  .grid > *:nth-child(8) { animation-delay: 0.8s; }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .grid > *:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1200px) {
+    .new-collections {
+      padding: 50px 20px;
+    }
+    
+    .grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .new-collections {
+      padding: 40px 15px;
+      border-radius: 15px;
+    }
+    
+    .new-collections h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+    
+    .new-collections hr {
+      margin: 30px auto 40px;
+      width: 90%;
+    }
+    
+    .grid {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 15px 0;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .new-collections {
+      padding: 30px 10px;
+      border-radius: 10px;
+    }
+    
+    .new-collections h1 {
+      font-size: 2rem;
+      letter-spacing: 0;
+    }
+    
+    .grid {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+  }
+  
+  /* Dark mode support */
+  @media (prefers-color-scheme: dark) {
+    .new-collections {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+      color: #ffffff;
+    }
+    
+    .new-collections h1 {
+      background: linear-gradient(135deg, #ffffff, #64b5f6, #ff6b6b);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .new-collections hr {
+      background: linear-gradient(90deg, transparent, #64b5f6, transparent);
+    }
+  }
+  
+  /* Accessibility improvements */
+  @media (prefers-reduced-motion: reduce) {
+    .new-collections::before,
+    .new-collections h1,
+    .grid > * {
+      animation: none;
+    }
+    
+    .grid > * {
+      opacity: 1;
+      transform: none;
+    }
+    
+    .grid > *:hover {
+      transform: none;
+    }
+  }
+  
+  /* Print styles */
+  @media print {
+    .new-collections {
+      background: white;
+      box-shadow: none;
+      padding: 20px;
+    }
+    
+    .new-collections h1 {
+      color: black;
+      background: none;
+      -webkit-text-fill-color: initial;
+    }
+    
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+  
+  /* Enhanced focus states for accessibility */
+  .new-collections:focus-within {
+    outline: 3px solid #3498db;
+    outline-offset: 5px;
+  }
+  
+  /* Loading state animation */
+  .new-collections.loading .grid > * {
+    opacity: 0.3;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes pulse {
+    0% { opacity: 0.3; }
+    50% { opacity: 0.7; }
+    100% { opacity: 0.3; }
+  }
+  
+  /* Smooth scrolling when navigating to section */
+  .new-collections {
+    scroll-margin-top: 80px;
+  }
+  
+  /* Container query support for modern browsers */
+  @container (min-width: 600px) {
+    .grid {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+  }
+  
+  /* Enhanced backdrop blur effect for supported browsers */
+  @supports (backdrop-filter: blur(10px)) {
+    .new-collections {
+      backdrop-filter: blur(10px);
+      background: rgba(248, 249, 250, 0.9);
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      .new-collections {
+        background: rgba(26, 26, 26, 0.9);
+      }
+    }
+  }

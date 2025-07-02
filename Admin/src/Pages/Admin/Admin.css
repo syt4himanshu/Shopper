@@ -1,0 +1,328 @@
+/* Admin.css - Main Layout Container */
+
+/* ===========================================
+   ADMIN LAYOUT VARIABLES
+   =========================================== */
+   :root {
+    --sidebar-width: 250px;
+    --sidebar-collapsed-width: 60px;
+    --navbar-height: 60px;
+    --admin-bg: #f8f9fa;
+    --content-padding: 20px;
+    --transition-speed: 0.3s;
+  }
+  
+  /* ===========================================
+     ADMIN CONTAINER
+     =========================================== */
+  .admin {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--admin-bg);
+    position: relative;
+  }
+  
+  /* ===========================================
+     MAIN CONTENT AREA
+     =========================================== */
+  .admin-content {
+    flex: 1;
+    margin-left: var(--sidebar-width);
+    margin-top: var(--navbar-height);
+    padding: var(--content-padding);
+    min-height: calc(100vh - var(--navbar-height));
+    transition: margin-left var(--transition-speed) ease;
+    overflow-x: auto;
+  }
+  
+  /* New: Main content area next to sidebar */
+  .admin-main-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 24px;
+    box-sizing: border-box;
+    margin-left: 0;
+    overflow-x: auto;
+  }
+  
+  /* Content wrapper for better organization */
+  .admin-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  /* ===========================================
+     PAGE HEADERS
+     =========================================== */
+  .admin-page-header {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e9ecef;
+  }
+  
+  .admin-page-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 8px 0;
+  }
+  
+  .admin-page-subtitle {
+    font-size: 0.875rem;
+    color: #6c757d;
+    margin: 0;
+  }
+  
+  /* ===========================================
+     BREADCRUMBS
+     =========================================== */
+  .admin-breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #6c757d;
+  }
+  
+  .breadcrumb-item {
+    color: #6c757d;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .breadcrumb-item:hover {
+    color: #007bff;
+  }
+  
+  .breadcrumb-item.active {
+    color: #333;
+    font-weight: 500;
+  }
+  
+  .breadcrumb-separator {
+    color: #dee2e6;
+  }
+  
+  /* ===========================================
+     CARDS & CONTAINERS
+     =========================================== */
+  .admin-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+    margin-bottom: 24px;
+    border: 1px solid #e9ecef;
+  }
+  
+  .admin-card-header {
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e9ecef;
+  }
+  
+  .admin-card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+  }
+  
+  .admin-card-body {
+    padding: 0;
+  }
+  
+  /* ===========================================
+     RESPONSIVE DESIGN
+     =========================================== */
+  @media (max-width: 1024px) {
+    .admin-main-content {
+      padding: 24px 8px;
+      align-items: flex-start;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .admin {
+      flex-direction: column;
+    }
+    .admin-main-content {
+      padding: 16px 4px;
+      min-height: unset;
+      align-items: flex-start;
+    }
+    
+    .admin-content {
+      margin-left: var(--sidebar-collapsed-width);
+      padding: 16px;
+    }
+    
+    .admin-page-title {
+      font-size: 1.5rem;
+    }
+    
+    .admin-card {
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .admin-content {
+      margin-left: 0;
+      padding: 12px;
+    }
+    
+    .admin-page-header {
+      margin-bottom: 16px;
+    }
+    
+    .admin-card {
+      padding: 12px;
+    }
+  }
+  
+  /* ===========================================
+     LOADING & EMPTY STATES
+     =========================================== */
+  .admin-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    color: #6c757d;
+  }
+  
+  .admin-empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: #6c757d;
+  }
+  
+  .admin-empty-state h3 {
+    margin-bottom: 8px;
+    color: #495057;
+  }
+  
+  .admin-empty-state p {
+    margin-bottom: 20px;
+  }
+  
+  /* ===========================================
+     UTILITY CLASSES
+     =========================================== */
+  .admin-flex {
+    display: flex;
+  }
+  
+  .admin-flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .admin-flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .admin-grid {
+    display: grid;
+    gap: 20px;
+  }
+  
+  .admin-grid-2 {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  
+  .admin-grid-3 {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  
+  .admin-grid-4 {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  
+  /* Spacing utilities */
+  .admin-mb-1 { margin-bottom: 8px; }
+  .admin-mb-2 { margin-bottom: 16px; }
+  .admin-mb-3 { margin-bottom: 24px; }
+  .admin-mb-4 { margin-bottom: 32px; }
+  
+  /* ===========================================
+     ANIMATION CLASSES
+     =========================================== */
+  .admin-fade-in {
+    opacity: 0;
+    animation: fadeIn 0.3s ease-in-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .admin-slide-up {
+    transform: translateY(20px);
+    opacity: 0;
+    animation: slideUp 0.3s ease-out forwards;
+  }
+  
+  @keyframes slideUp {
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* ===========================================
+     SIDEBAR COLLAPSED STATE
+     =========================================== */
+  .admin.sidebar-collapsed .admin-content {
+    margin-left: var(--sidebar-collapsed-width);
+  }
+  
+  /* ===========================================
+     OVERLAY FOR MOBILE SIDEBAR
+     =========================================== */
+  .admin-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .admin-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /* ===========================================
+     PRINT STYLES
+     =========================================== */
+  @media print {
+    .admin-content {
+      margin-left: 0;
+      margin-top: 0;
+      padding: 0;
+    }
+    
+    .admin-card {
+      box-shadow: none;
+      border: 1px solid #ccc;
+      break-inside: avoid;
+    }
+  }

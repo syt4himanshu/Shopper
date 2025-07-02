@@ -1,0 +1,453 @@
+/* Breadcrumb.css */
+
+.breadcrum {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #6b7280;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 1px solid rgba(229, 231, 235, 0.6);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: slideInDown 0.6s ease forwards;
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  
+  @keyframes slideInDown {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Subtle background gradient */
+  .breadcrum::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.05), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  .breadcrum:hover::before {
+    left: 100%;
+  }
+  
+  .breadcrum:hover {
+    border-color: rgba(99, 102, 241, 0.2);
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.08);
+    transform: translateY(-1px);
+  }
+  
+  /* Breadcrumb Items */
+  .breadcrum > *:not(img) {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  
+  /* Home Link */
+  .breadcrum > *:first-child {
+    color: #6366f1;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    font-weight: 700;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .breadcrum > *:first-child::before {
+    content: '🏠';
+    margin-right: 6px;
+    font-size: 0.9rem;
+  }
+  
+  .breadcrum > *:first-child::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.3s ease;
+  }
+  
+  .breadcrum > *:first-child:hover::after {
+    left: 100%;
+  }
+  
+  .breadcrum > *:first-child:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.2);
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.15));
+  }
+  
+  /* Shop Link */
+  .breadcrum > *:nth-child(3) {
+    color: #059669;
+    background: rgba(5, 150, 105, 0.1);
+    border: 1px solid rgba(5, 150, 105, 0.2);
+  }
+  
+  .breadcrum > *:nth-child(3):hover {
+    background: rgba(5, 150, 105, 0.15);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(5, 150, 105, 0.15);
+  }
+  
+  /* Category Link */
+  .breadcrum > *:nth-child(5) {
+    color: #dc2626;
+    background: rgba(220, 38, 38, 0.1);
+    border: 1px solid rgba(220, 38, 38, 0.2);
+    text-transform: capitalize;
+  }
+  
+  .breadcrum > *:nth-child(5):hover {
+    background: rgba(220, 38, 38, 0.15);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.15);
+  }
+  
+  /* Product Name (Last Item) */
+  .breadcrum > *:last-child {
+    color: #1f2937;
+    background: linear-gradient(135deg, #f9fafb, #f3f4f6);
+    border: 1px solid #d1d5db;
+    font-weight: 700;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: none;
+    letter-spacing: 0;
+    position: relative;
+  }
+  
+  .breadcrum > *:last-child::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #6366f1, #8b5cf6);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  
+  .breadcrum > *:last-child:hover::before {
+    transform: scaleX(1);
+  }
+  
+  .breadcrum > *:last-child:hover {
+    background: linear-gradient(135deg, #ffffff, #f9fafb);
+    border-color: #6366f1;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Arrow Icons */
+  .breadcrum img {
+    width: 12px;
+    height: 12px;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+    filter: brightness(0) saturate(100%) invert(60%) sepia(8%) saturate(1106%) hue-rotate(202deg) brightness(91%) contrast(89%);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.1); }
+  }
+  
+  .breadcrum:hover img {
+    opacity: 0.8;
+    filter: brightness(0) saturate(100%) invert(47%) sepia(69%) saturate(959%) hue-rotate(225deg) brightness(98%) contrast(94%);
+  }
+  
+  /* Enhanced Visual Separators */
+  .breadcrum img::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: currentColor;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .breadcrum {
+      padding: 12px 16px;
+      font-size: 0.8rem;
+      gap: 6px;
+      margin: 0 10px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    
+    .breadcrum::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .breadcrum > *:not(img) {
+      padding: 4px 8px;
+      font-size: 0.75rem;
+      white-space: nowrap;
+      min-width: fit-content;
+    }
+    
+    .breadcrum > *:last-child {
+      max-width: 150px;
+    }
+    
+    .breadcrum img {
+      width: 10px;
+      height: 10px;
+      flex-shrink: 0;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .breadcrum {
+      padding: 10px 12px;
+      font-size: 0.75rem;
+      gap: 4px;
+      border-radius: 8px;
+    }
+    
+    .breadcrum > *:not(img) {
+      padding: 3px 6px;
+      font-size: 0.7rem;
+    }
+    
+    .breadcrum > *:last-child {
+      max-width: 120px;
+    }
+    
+    .breadcrum img {
+      width: 8px;
+      height: 8px;
+    }
+    
+    /* Simplified mobile version - show only key items */
+    .breadcrum > *:nth-child(3) {
+      display: none;
+    }
+    
+    .breadcrum > *:nth-child(4) {
+      display: none;
+    }
+  }
+  
+  /* Dark Mode Support */
+  @media (prefers-color-scheme: dark) {
+    .breadcrum {
+      background: rgba(17, 24, 39, 0.8);
+      border-color: rgba(75, 85, 99, 0.6);
+      color: #d1d5db;
+    }
+    
+    .breadcrum > *:first-child {
+      color: #818cf8;
+      background: linear-gradient(135deg, rgba(129, 140, 248, 0.1), rgba(167, 139, 250, 0.1));
+      border-color: rgba(129, 140, 248, 0.2);
+    }
+    
+    .breadcrum > *:nth-child(3) {
+      color: #34d399;
+      background: rgba(52, 211, 153, 0.1);
+      border-color: rgba(52, 211, 153, 0.2);
+    }
+    
+    .breadcrum > *:nth-child(5) {
+      color: #f87171;
+      background: rgba(248, 113, 113, 0.1);
+      border-color: rgba(248, 113, 113, 0.2);
+    }
+    
+    .breadcrum > *:last-child {
+      color: #f9fafb;
+      background: linear-gradient(135deg, #374151, #4b5563);
+      border-color: #6b7280;
+    }
+    
+    .breadcrum img {
+      filter: brightness(0) saturate(100%) invert(80%) sepia(8%) saturate(400%) hue-rotate(202deg) brightness(95%) contrast(89%);
+    }
+  }
+  
+  /* High Contrast Mode */
+  @media (prefers-contrast: high) {
+    .breadcrum {
+      background: white;
+      border: 2px solid #000;
+    }
+    
+    .breadcrum > *:not(img) {
+      border: 1px solid #000;
+      color: #000;
+      background: white;
+    }
+    
+    .breadcrum > *:last-child {
+      background: #000;
+      color: white;
+    }
+    
+    .breadcrum img {
+      filter: brightness(0);
+    }
+  }
+  
+  /* Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    .breadcrum,
+    .breadcrum > *,
+    .breadcrum img {
+      animation: none;
+      transition: none;
+    }
+    
+    .breadcrum:hover,
+    .breadcrum > *:hover {
+      transform: none;
+    }
+  }
+  
+  /* Print Styles */
+  @media print {
+    .breadcrum {
+      background: white;
+      border: 1px solid #ccc;
+      box-shadow: none;
+      color: black;
+    }
+    
+    .breadcrum > *:not(img) {
+      color: black;
+      background: none;
+      border: none;
+    }
+    
+    .breadcrum img {
+      filter: brightness(0);
+    }
+  }
+  
+  /* Focus States for Accessibility */
+  .breadcrum > *:not(img):focus {
+    outline: 2px solid #6366f1;
+    outline-offset: 2px;
+    z-index: 1;
+  }
+  
+  /* Loading State */
+  .breadcrum.loading {
+    opacity: 0.7;
+  }
+  
+  .breadcrum.loading > *:not(img) {
+    background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    color: transparent;
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  
+  /* Enhanced Hover Effects */
+  .breadcrum > *:not(img):hover {
+    animation: bounceIn 0.3s ease;
+  }
+  
+  @keyframes bounceIn {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1.02); }
+  }
+  
+  /* Micro-interactions */
+  .breadcrum > *:not(img):active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+  
+  /* Enhanced backdrop blur for supported browsers */
+  @supports (backdrop-filter: blur(20px)) {
+    .breadcrum {
+      backdrop-filter: blur(20px);
+      background: rgba(255, 255, 255, 0.7);
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      .breadcrum {
+        background: rgba(17, 24, 39, 0.7);
+      }
+    }
+  }
+  
+  /* Container queries for future-proofing */
+  @container (max-width: 600px) {
+    .breadcrum > *:nth-child(3) {
+      display: none;
+    }
+  }
+  
+  /* Scroll behavior */
+  .breadcrum {
+    scroll-behavior: smooth;
+  }
+  
+  /* Custom tooltip for truncated items */
+  .breadcrum > *:last-child[title] {
+    cursor: help;
+  }
+  
+  .breadcrum > *:last-child[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1f2937;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    z-index: 1000;
+    margin-bottom: 5px;
+  }

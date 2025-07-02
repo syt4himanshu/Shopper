@@ -1,0 +1,118 @@
+.newsletter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+    min-height: 300px;
+  }
+  
+  .newsletter h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 16px 0;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+  }
+  
+  .newsletter p {
+    font-size: 1.1rem;
+    margin: 0 0 40px 0;
+    opacity: 0.9;
+    font-weight: 400;
+    max-width: 500px;
+  }
+  
+  .form {
+    display: flex;
+    gap: 0;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 50px;
+    overflow: hidden;
+    background: white;
+  }
+  
+  .form input {
+    flex: 1;
+    padding: 16px 24px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: #333;
+    background: transparent;
+  }
+  
+  .form input::placeholder {
+    color: #888;
+    font-weight: 400;
+  }
+  
+  .form button {
+    padding: 16px 32px;
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+    color: white;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+  
+  .form button:hover {
+    background: linear-gradient(45deg, #ff5252, #e55100);
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+  }
+  
+  .form button:active {
+    transform: translateY(0);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .newsletter {
+      padding: 40px 16px;
+    }
+    
+    .newsletter h1 {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+    
+    .newsletter p {
+      font-size: 1rem;
+      margin-bottom: 30px;
+    }
+    
+    .form {
+      flex-direction: column;
+      border-radius: 12px;
+      max-width: 320px;
+    }
+    
+    .form input {
+      padding: 14px 20px;
+      border-radius: 12px 12px 0 0;
+    }
+    
+    .form button {
+      padding: 14px 24px;
+      border-radius: 0 0 12px 12px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .newsletter h1 {
+      font-size: 1.75rem;
+    }
+    
+    .form {
+      max-width: 280px;
+    }
+  }
